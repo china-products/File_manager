@@ -1,0 +1,511 @@
+body{
+	width: 100%;
+    text-align: center;
+    font-size:14px;
+	position:relative;
+	z-index:2;
+    background: url(../img/06.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    overflow: hidden;
+}
+html{
+    height: 100%;
+}
+
+body, th, input, select, textarea, ul, li, h1, a,button{
+	text-decoration:none;
+    margin: 0;
+    padding: 0;
+	outline:none;
+}
+.main{
+	margin:0 auto;
+    height: 100%;
+}
+.clear{
+	clear:both;
+}
+.header .main{
+    height: 100%;
+}
+.header{
+   height: 70px;
+}
+.header .logo{
+    float: left;
+    width: 20%;
+    height: 100%;
+}
+.header .logo a{
+    color: #fff;
+    font-size: 28px;
+    display: block;
+    padding: 18px;
+}
+.header{
+    background: #668964;
+}
+.header .nav{
+    float: left;
+    width: 55%;
+    height: 100%;
+}
+.header .nav ul{
+    margin-top: 2.5%;
+}
+.header .nav ul  li{
+    display: inline-block;
+    list-style-type: none; 
+    vertical-align: middle;
+    position: relative;
+}
+
+.header .nav ul li a{
+    color: #fff;  
+    padding: 10px;
+    font-size: 18px;
+    transition: 0.4s;
+}
+.header .nav ul li a i{
+    color: #fff;
+    margin-right: 5px;
+    font-size: 15px;
+    position: relative;
+}
+.header .nav ul li:nth-of-type(2) a i,.header .nav ul li:nth-of-type(3) a i{
+    top: -1px;    
+}
+.header .nav ul li a:hover{
+    color: #bbb;
+}
+.header .nav ul li >ul >li{
+    display: block;
+    list-style-type: none; 
+    margin: 10px;
+    transition: 0.4s;
+}
+.header .nav ul li >ul{
+    position: absolute;
+    background: #fff;
+    width: 100%;
+    z-index: 5;
+}
+.header .nav ul li >ul >li:hover{
+    background: #668964;
+}
+.header .nav ul li >ul >li a:hover{
+    color:#fff;
+}
+.header .nav ul li >ul >li a{
+    color:#000;
+    font-weight: 100;
+    font-size: 16px;
+    padding: 2px;
+    display: block;
+    transition: 0.6s;
+}
+.header .nav ul li >ul{
+    display: none;
+}
+.header .nav ul li:hover ul{
+    display: block;
+}
+.header .find{
+    float: left;
+    height: 100%;
+    width: 20%;
+}
+.header .find form{
+    position: relative;
+}
+.header .find form i {
+    position: absolute;
+    top: 55%;
+    left: 10px;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 100;
+}
+.header .find form input{
+    margin-top: 6.5%;
+    color: #fff;
+    background: #7d9774;
+    border: none;
+    height: 30px;
+    width: 89%;
+    border-radius: 5px;
+    padding: 0px 5px 0px 30px;
+}
+.content {
+    height: 100%;
+}
+.content .main{
+    position: relative;
+}
+.content .left_content{
+    width: 20%;
+    float: left;
+    position: relative;
+    background: #fff;
+    color: #696969;
+    text-align: center;
+    height: 100%;
+    overflow: hidden;
+    transition: 1s;
+    z-index: 0;
+}
+.menu_seting{
+    background: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    width: ;
+    position: absolute;
+    display: none;
+    z-index: 5;
+}
+.menu_seting ul li{
+    list-style-type: none;
+    padding: 7px;
+    border-top: none !important;
+    cursor: pointer;
+}
+.menu_seting ul li:hover{
+    color:#696969;
+}
+.content .left_content ul li{
+    padding: 10px;
+    border-top: 1px solid #dedede;
+    width: 80%;
+    margin: 10px auto;
+    list-style-type: none;
+    cursor: move;
+    text-align: left;
+}
+.content .left_content ul li:hover i{
+    color:#000;
+}
+.content .left_content ul li i:hover,.content .center_content .title i:hover{
+    color:firebrick;
+}
+.content .left_content ul li i,.content .center_content .title i{
+    margin-right: 15px;
+    cursor: pointer;
+    color:#fff;
+}
+.content .left_content ul li input[type="checkbox"], .content .center_content .title input[type="checkbox"]{
+    display: none;
+}
+.content .left_content ul li label {
+	display: inline-block;
+	cursor: pointer;
+	position: relative;
+	padding-left: 25px;
+    float: right;
+    margin-top: 18px;
+	font-size: 13px;
+}
+
+.content .left_content ul li label:before {
+	content: "";
+	display: inline-block;
+
+	width: 16px;
+	height: 16px;
+
+	margin-right: 10px;
+	position: absolute;
+	left: 0;
+	bottom: 1px;
+	box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
+}
+.content .left_content ul li label:before {
+	border-radius: 3px;
+}
+.content .left_content ul li input[type=checkbox]:checked + label:before {
+	content: "\2713";
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
+	font-size: 15px;
+	color: #000;
+	text-align: center;
+    line-height: 15px;
+}
+.content .left_content ul li input[type="text"], .title input[type="text"]{
+    border: none;
+    background: none;
+}
+.content .left_content .name{
+    float: left;
+    width: 94%;
+    text-align: left;
+    padding: 10px 10px;
+    background: #7d9774;
+    color: #fff;
+    font-size: 16px;
+}
+.avatar{
+    display: inline-block;
+    margin-right: 10px;
+}
+.avatar span{
+    background: #62d8e6;
+    border-radius: 50%;
+    display: inline-block;
+    padding: 7px 11px;
+    color: #fff;
+}
+.content .left_instr{
+    float: left;
+    width: 3%;
+    height: 100%;
+    background: #fff;
+    padding: 10px 0px;
+    z-index: 2;
+    position: relative;
+}
+.content .left_instr ul li i{
+    font-size: 18px;
+    padding: 10px;
+    cursor: pointer;
+}
+.content .left_content .name i{
+    cursor: pointer;
+    font-size: 20px;
+    float: right;
+    margin-top: 6px;
+    margin-left: 10px;
+
+}
+.content .center_content{
+    width: 77%;
+    float: left;
+    height: 100%;
+    transition:1s;
+}
+.title li{
+    list-style-type: none;
+}
+.title input[type="text"]{
+    color: #fff;
+    width: 90%;
+    font-size: 16px;
+    padding: 5px;
+    color: #fff;
+}
+.content .center_content .title{
+    text-align: left;
+    padding: 12px;
+    background: rgba(125, 151, 116,0.8);
+    margin: 20px;
+    border-radius: 5px;
+}
+.content .center_content .task_detail{
+    min-height: 75%;
+    background: #fff;
+    margin: 20px;
+    border-radius: 5px;
+    padding: 15px;
+}
+.content .center_content .task_detail >div{
+    text-align: left;
+}
+.content .center_content .task_detail >div> a{
+    color: #000;
+}
+.modal_add_zad_overlay{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 8;
+    display: none;
+    background: rgba(0,0,0,0.5);
+}
+.date_change ,.time{
+    font-size: 11px;
+    color: #6b6b6b;
+}
+.modal_add_zad{
+    position: absolute;
+    padding: 20px;
+    z-index: 10;
+    display: none;
+    top: 20%;
+    left: 45%;
+    background: #fafafa;
+    -webkit-box-shadow: 0 1px 25px rgba(0,0,0,0.2), 0 0 0 1px rgba(0,0,0,0.08);
+    box-shadow: 0 1px 25px rgba(0,0,0,0.2), 0 0 0 1px rgba(0,0,0,0.08);
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    width: 300px;
+}
+.modal_add_zad p,.modal_add_zad span{
+    font-size: 18px;
+    font-weight: bolder;
+    margin: 0px;
+    display: block;
+    margin: 0px 0px 10px;
+}
+.modal_notification{
+    position: absolute;
+    z-index: 10;
+    background: #fff;
+    width: 80%;
+    left: 14%;
+    top: 7%;
+    height: 300px;
+    padding: 0px 10px;
+    display: none;
+}
+
+
+.modal_notification .name_user a{
+    color:#000;
+}
+.modal_notification .name_user a:hover{
+    color: skyblue;
+}
+.notification_block{
+    width: 110%;
+    overflow: auto;
+    height: 300px;
+}
+.last_doing{
+    padding: 10px;
+    font-size: 18px;
+}
+.notification{
+    text-align: left;
+    width: 80%;
+    padding: 5px 10px;
+    border-bottom: 1px solid #ddd;
+}
+.modal_add_zad input,.modal_add_zad select , #save_sort{
+    padding: 9px 10px 10px;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 6px;
+    font-family: $wlFonts;
+    font-weight: 500;
+    font-size: 15px;
+    color: #262626;
+    border: none;
+    background: #fff;
+    -webkit-transition: all 0.15s ease-in-out;
+    -moz-transition: all 0.15s ease-in-out;
+    -o-transition: all 0.15s ease-in-out;
+    -ms-transition: all 0.15s ease-in-out;
+    transition: all 0.15s ease-in-out;
+    -webkit-box-shadow: inset 0 0 0 1px #d6d6d6;
+    box-shadow: inset 0 0 0 1px #d6d6d6;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+#save_sort{
+    width: 200px;
+}
+.coments{
+    margin-top: 100px;
+    width: 95%;
+    overflow: hidden;
+    height: 400px;
+}
+.coments:hover{
+    color:#000 !important;
+}
+.com_over{
+    width: 110%;
+    overflow: auto;
+    height: 400px;
+}
+.item_coment a{    
+    color: #000;
+    font-size: 16px;
+    text-decoration: none;
+    transition: 0.2s;
+}
+.item_coment a:hover{
+    color:skyblue;
+}
+.item_coment{
+    border-bottom: 1px dashed #ccc;
+    margin-bottom: 10px;
+    transition: 0.4s;
+}
+.item_coment:hover{
+    -webkit-box-shadow: 0px -2px 36px -5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px -2px 36px -5px rgba(0,0,0,0.75);
+    box-shadow: 0px -2px 36px -5px rgba(0,0,0,0.75);
+}
+#send_com{
+    display: none;
+    position: absolute;
+    top: -61px;
+    z-index: 99999;
+    right: 100px;
+    padding: 7px;
+    cursor: pointer;
+}
+.modal_add_zad input[type="submit"]:hover , #save_sort:hover{
+    color:#fff;
+    background: #62d8e6;
+}
+.nev_text{
+    width: 96.6%;
+    position: relative;
+    left: 1.6%;
+}
+#mceu_11{
+    position: absolute;
+    z-index: 999;
+    bottom: 0;
+    height: 320px;
+    bottom: -500px;
+    transition: 0.4s;
+}
+#show_panel{
+    position: absolute;
+    z-index: 99;
+    bottom: 20px;
+    width: 98.5%;
+    height: 35px;
+    left: 0px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: none;
+    border-top: 1px solid #969696;
+    padding-left: 20px;
+}
+#mceu_25{
+    height: 200px;
+}
+.mce-branding-powered-by,#mceu_29{
+    display: none !important;
+}
+#calendar input{
+    width: 0px;
+    border: none;
+}
+#colorpickerField{
+    display: none;
+}
+.content .center_content .task_detail >div> a:hover{
+    color:skyblue;
+}
+.content .center_content .task_detail >div{
+    float: left;
+    cursor: pointer;
+}
+.content .center_content .task_detail >div:hover{
+    color:#848484;
+}
+.content .center_content .task_detail >div {
+    font-size: 18px;
+    margin-right: 15px;
+}
+.content .center_content .task_detail .create_date{
+    padding: 5px 0px;
+}

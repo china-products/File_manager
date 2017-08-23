@@ -1,0 +1,260 @@
+@font-face {
+    font-family: roboto; /* Имя шрифта */
+    src: url(fonts/roboto.ttf); /* Путь к файлу со шрифтом */
+}
+@font-face {
+    font-family: roboto_thin; /* Имя шрифта */
+    src: url(fonts/roboto_thin.ttf); /* Путь к файлу со шрифтом */
+}
+@font-face {
+    font-family: roboto_reg; /* Имя шрифта */
+    src: url(fonts/rob_reg.ttf); /* Путь к файлу со шрифтом */
+}
+body{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    font-family: roboto_reg;
+}
+body a{
+    text-decoration: none;
+}
+body li{
+    list-style-type: none;
+}
+.window{
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 100px;
+    border: 1px solid #ccc;
+}
+.select{
+    background-color: blue !important;
+    color:#fff;
+}
+.modal{
+    position: fixed;
+    z-index: 9;
+    padding: 50px;
+    top: 40%;
+    background: rgba(90, 90, 90, 0.8);
+    left: 40%;
+    max-height: 250px;
+    overflow: auto;
+    display: none;
+}
+.modal button{
+    cursor: pointer;
+}
+.closed{
+    position: relative;
+}
+.field li.toggle,.field li.file{
+    margin: 0px;
+    background: none;
+    width: 81px;
+    text-align: center;
+    display: inline-block;
+    overflow: hidden;
+    max-height: 89px;
+    padding: 0px;
+    margin: 10px 10px;
+    vertical-align: top;
+}
+.field li img{
+    width:35px;
+    height: 50px;
+}
+.field .img img{
+    width: auto;
+    height:auto;
+    max-width:35px;
+    max-height: 50px;
+}
+.field .back img{
+    width:auto;
+}
+.field .toggle input{
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+}
+.field .img{
+    height: 50px;
+    text-align: center;
+}
+.field li.toggle span{
+    display: block;
+    word-wrap: break-word;
+}
+.field li.file a{
+    background:none;
+    padding: 0px;
+}
+.field li.file span{
+    display: block;
+    word-wrap: break-word;
+}
+.closed i{
+    position: absolute;
+    top: -50px;
+    right: -49px;
+    cursor: pointer;
+    color: #fff;
+}
+.panel_instrum i{
+    display: inline-block;
+    padding:10px;
+    cursor: pointer;
+}
+.panel_instrum i:hover{
+    color: red;
+}
+.tools{
+    width:100%;
+    border: 1px solid #000;
+}
+.clear{
+    clear: both;
+}
+.field li .ctrl{
+    opacity: 1;
+    width: 15px;
+    height: 15px;
+}
+.field li:first-child .ctrl{
+    opacity: 0;
+}
+.field{
+    width: 75%;
+    border: 1px solid #000;
+    float: left;
+    overflow: auto;
+    height: 100%;
+    margin-left: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 15px;
+}
+.field .cke_contents {
+    height: 100% !important;
+}
+.field textArea{
+    width: 100%;
+    height: 100%;
+}
+.field  p{
+    text-align: right;
+    color:red;
+    padding: 0px;
+    margin: 3px;
+}
+.field  p i{
+    cursor: pointer;
+}
+.tools ul li{
+    display: inline-block;
+    cursor: pointer;
+    padding: 5px;
+    margin: 0px 5px;
+    text-align: center;
+}
+.tools ul li:hover{
+    color:red;
+}
+.dom{
+    float: left;
+    width: 20%;
+    border: 1px solid #000;
+    overflow: hidden;
+}	
+ol.tree {
+	padding: 0 0 0 30px;
+	width: 300px;
+}
+li { 
+  position: relative; 
+	margin-left: -15px;
+	list-style: none;
+}
+li.file {
+	margin-left: -1px !important;
+}
+li.file a {
+    background: url(../img/document.png) 0 2px no-repeat;
+    color: red;
+    padding-left: 20px;
+    text-decoration: none;
+    display: block;
+}
+li.file a:hover {
+  color: #aff;
+  text-decoration: underline;
+}
+li.toggle {
+  background: url(../img/folder-horizontal.png) 15px 1px no-repeat;
+  cursor: pointer;
+  padding-left: 37px;
+  
+}
+li.file [href*='.pdf']	{ 
+  background: url(../img/document-pdf.png) 0 0 no-repeat; 
+}
+li.file [href*='.htm'], 
+li.file [href*='.html']	{ 
+  background: url(../img/document-html.png) 0 3px no-repeat; 
+}
+li.file [href*='.txt'] { 
+  background: url(../img/document-txt.png) 0 3px no-repeat; 
+}
+li.file [href*='.zip'],
+li.file [href*='.gz'] { 
+  background: url(../img/document-zip.png) 0 3px no-repeat; 
+}
+li.file [href$='.jpg'],
+li.file [href$='.gif'],
+li.file [href$='.ico']	{ 
+  background: url(../img/document-jpg.png) 0 2px no-repeat; 
+}
+li.file [href$='.png']	{ 
+  background: url(../img/document-png.png) 0 2px no-repeat; 
+}
+li.file [href$='.css']	{ 
+  background: url(../img/document-css.png) 0 2px no-repeat; 
+}
+li.file [href$='.js']	{ 
+  background: url(../img/document-js.png) 0 2px no-repeat; 
+}
+li.file [href$='.php']	{ 
+  background: url(../img/document-php.png) 0 4px no-repeat; 
+}
+li input {
+  position: absolute;
+  left: 0;
+  margin-left: 0;
+  opacity: 0;
+  z-index: 2;
+  cursor: pointer;
+  height: 1em;
+  width: 16em;
+  top: 0;
+  display:inline-block;
+}
+li input + ol {
+	background: url(../img/toggle-small-expand.png) 5px -3px no-repeat;
+	margin: -0.938em 0 0 -44px; /* 15px */
+	height: 1em;
+}
+li input + ol > li { 
+  display: none; 
+  margin-left: -14px !important; 
+  padding-left: 1px; 
+}
+li input:checked + ol {
+  background: url(../img/toggle-small.png) 5px 2px no-repeat;
+  padding: 20px 37px;
+  height: auto;
+}
+li input:checked + ol > li { display: block; margin: 0 0 0.125em;  /* 2px */}
+li input:checked + ol > li:last-child { margin: 0 0 0.063em; /* 1px */ } 

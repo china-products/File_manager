@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="shortcut icon" type="image/png" href="/favicon.ico" />
+		<title></title>
+		<link href='css/style.css' rel='stylesheet' />
+		<link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script src="js/jquery-cookie-master/src/jquery.cookie.js"></script>
+		<script type="text/javascript" src="js/colorpicker.js"></script>
+        <script type="text/javascript" src="js/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="css/colorpicker.css" type="text/css" />
+        <link rel="stylesheet" href="js/jquery-ui-1.12.1.custom/jquery-ui.min.css" type="text/css" />
+        <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+        <script>tinymce.init({ selector:'textarea' });</script>
+	</head>
+	<body>
+	   <div class="modal_add_zad_overlay"></div> 
+        <div class="modal_add_zad">
+            <p>Добавить задачу</p> 
+            <form action="">
+                <input type="text" value="" placeholder="Название задачи" required><br><br>
+                <span>Срок выполнения</span><br>
+                <input type="date"><br><br>
+                <span>Введите имя или e-mail исполнителя</span><br>
+                <input type="text" value="" name="user" placeholder="Исполнитель"><br><br>
+                <input type="submit" id="continue" name="go" value="Готово">
+            </form>
+        </div>
+		<div class="header">
+			<div class="main">
+			     <div class="logo">
+			         <a href="">MYCRM</a>
+			     </div>
+			     <div class="nav">
+			         <ul>
+			             <li>
+			                 <a href=""><i class="fa fa-list-alt" aria-hidden="true"></i>Все задачи</a>
+			                 <ul>
+                                <li><a href="">Задача 1</a></li>
+                                <li><a href="">Задача 2</a></li>
+                                <li><a href="">Задача 3</a></li>
+                             </ul>
+			             </li>
+			             <li><a href=""><i class="fa fa-paperclip" aria-hidden="true"></i>Закрепленые</a></li>
+			             <li><a href=""><i class="fa fa-calendar" aria-hidden="true"></i>На сегодня</a></li>
+			             <li><a href=""><i class="fa fa-check-square-o" aria-hidden="true"></i>Выполненные</a></li>
+			         </ul>
+			     </div>
+			     <div class="find">
+			         <form action="">
+                         <i class="fa fa-search" aria-hidden="true"></i>
+			             <input type="text" value="" placeholder="" name="">
+			         </form>
+			     </div>
+			     <div class="clear"></div>
+			</div>
+		</div>
+		<script>
+ 
+            $(document).ready(function(){
+                    
+                $('#show_menu').click(function(){
+                    if( $('.left_content').attr('show') == '1'){
+                        $('.left_content').css('margin-left','-'+$('.left_content').css('width')+'');
+                        $('.center_content').css('width','97%')
+                        $('.left_content').attr('show',0);
+                    }else{
+                        $('.left_content').css('margin-left','0');
+                        $('.center_content').css('width','77%')
+                        $('.left_content').attr('show',1)
+                        
+                    }
+                })
+                
+            })
+        </script>
+		<div class="content">
+            <div class="menu_seting">
+                <ul>
+                    <li>Настройка 1</li>
+                    <li>Настройка 2</li>
+                    <li>Настройка 3</li>
+                    <li>Настройка 4</li>
+                    <li>Настройка 5</li>
+                </ul>
+            </div>
+		    <div class="main">
+                <div class="left_instr">
+                    <ul>
+                        <li><i class="fa fa-bars" aria-hidden="true" id="show_menu" title="Скрыть/Показать меню"></i></li>
+                        <li><i class="fa fa-sort" aria-hidden="true" title="Сортировка"></i></li>
+                        <li><i class="fa fa-users" aria-hidden="true" title="Поделится"></i></li>
+                        <li><i class="fa fa-plus-square-o" aria-hidden="true" id="create_zadacha" title="Создать задачу"></i></li>
+                        <li><i class="fa fa-exchange" aria-hidden="true" title="Переместить задачу" ></i></li>
+                        <li><i class="fa fa-check" aria-hidden="true" id="ExecutedTask" title="Отметить как выполнены"></i></li>
+                        <li><i class="fa fa-times" aria-hidden="true" id="remove" title="Удалить выбраные"></i></li>
+                        <li><i class="fa fa-files-o" aria-hidden="true" id="copy" title="Копировать выбраные"></i></li>
+                        <li><i class="fa fa-share" aria-hidden="true" id="reply" title="Востановить"></i></li>
+                        <li><input id="colorpickerField" type="text" value="" >
+                            <label for="colorpickerField" id="col" ><i class="fa fa-font" aria-hidden="true"></i></label>
+                        </li>
+                        <li><i class="fa fa-paperclip" aria-hidden="true" title="Закрепить"></i></li>
+                    </ul>
+                </div>
+		        <div class="left_content" show="1">
+		            <div class="name">
+		                <div class="avatar"><span>В</span></div>Виктор<i class="fa fa-bell-o" id="notification" aria-hidden="true"></i>
+		                <div class="clear"></div>
+		            </div>
+		            <div class="modal_notification" show="0">
+                        <div class="last_doing">
+                            Последние действия
+                        </div>
+                        <div class="notification_block">
+                            <div class="notification">
+                                <div class="name_user">
+                                    <div class="avatar"><span>Д</span></div><a href="">Дмитрий</a>
+                                </div>
+                                <p class="text_user">
+                                    добавил(а) Задачу 5<br>
+                                    <span class="time">01.06.2017</span>
+                                </p>
+                            </div>
+                             <div class="notification">
+                                <div class="name_user">
+                                    <div class="avatar"><span>Д</span></div><a href="">Дмитрий</a>
+                                </div>
+                                <p class="text_user">
+                                    добавил(а) Задачу 5<br>
+                                    <span class="time">01.06.2017</span>
+                                </p>
+                            </div>
+                             <div class="notification">
+                                <div class="name_user">
+                                    <div class="avatar"><span>Д</span></div><a href="">Дмитрий</a>
+                                </div>
+                                <p class="text_user">
+                                    добавил(а) Задачу 5<br>
+                                    <span class="time">01.06.2017</span>
+                                </p>
+                            </div>
+                             <div class="notification">
+                                <div class="name_user">
+                                    <div class="avatar"><span>Д</span></div><a href="">Дмитрий</a>
+                                </div>
+                                <p class="text_user">
+                                    добавил(а) Задачу 5<br>
+                                    <span class="time">01.06.2017</span>
+                                </p>
+                            </div>
+                             <div class="notification">
+                                <div class="name_user">
+                                    <div class="avatar"><span>Д</span></div><a href="">Дмитрий</a>
+                                </div>
+                                <p class="text_user">
+                                    добавил(а) Задачу 5<br>
+                                    <span class="time">01.06.2017</span>
+                                </p>
+                            </div>
+                             <div class="notification">
+                                <div class="name_user">
+                                    <div class="avatar"><span>Д</span></div><a href="">Дмитрий</a>
+                                </div>
+                                <p class="text_user">
+                                    добавил(а) Задачу 5<br>
+                                    <span class="time">01.06.2017</span>
+                                </p>
+                            </div>
+                        </div>
+		            </div>
+		            <div class="clear"></div>
+		            <script>
+                        $(document).ready(function(){
+                             var Xinner = '';
+                             var Yinner = '';
+                             var el_this = '';
+                             var el_create = '';
+                               $(document).mousemove(function(e){
+                                     Xinner = e.pageX; // положения по оси X
+                                     Yinner = e.pageY; // положения по оси Y
+                                    //console.log("X: " + X + " Y: " + Y); // вывод результата в консоль
+                                });     
+                                
+                            /*$('.zadachi li').mousedown(function (e) {
+                                if (e.button == 2) {
+                                    $('.menu_seting').css({
+                                        display:'block',
+                                        left:Xinner,
+                                        top:Yinner
+                                    })
+                                    document.oncontextmenu = function () {
+                                        return false;
+                                    };
+                                }else{
+                                     $('.menu_seting').css('display','none');
+                                    document.oncontextmenu = function () {
+                                        return true;
+                                    };
+                                }
+                                return true;
+                                $('body').click(function(){
+                                    $('.menu_seting').css('display','none');
+                                    
+                                    document.oncontextmenu = function () {
+                                        return true;
+                                    };
+                                })
+                            });*/
+                                
+                               
+                                 $(function() {
+                                    $('.zadachi').sortable({
+                                        containment: "parent"
+                                    });
+                                    $('#save_sort').click(function(){
+                                       var order = $('.zadachi').sortable("toArray");
+                                       
+                                        for (var i = 0; i < order.length; i++) {
+                                            console.log("Position: " + i + " ID: " + order[i]);
+                                        }
+                                    })
+
+                                });
+                            //Удаление элементов
+                            $('#remove').click(function(){
+                                $('.zadachi li input:checkbox:checked').parent('li').remove();
+                            })
+                            //Копированиеъ
+                            $('#copy').click(function(){
+                                if($('.zadachi li input[type="checkbox"]').is(':checked')){
+                                    var el = $('.zadachi input:checkbox:checked');
+                                    var copy = Array[$(el).parent('li').html()];
+                                    $('.zadachi li input:checkbox:checked').prop('checked', false);
+                                    alert('Текст скопирован');
+                                }
+                                
+                            })
+                            //Изминение задачи
+                            
+                            $('.create').click(function(){
+                                el_this = $(this);
+                                el_create = $(this).parent('li').find('input[type="text"]');
+                                $(el_create).removeAttr("disabled");
+                                $(el_create).focus();
+                                $(el_create).keyup(function(){
+                                    var val = $(this).val();
+                                })
+                                
+                              $('body').on( "focusout", el_create,function(){
+                                    if($(el_create).val()){
+                                        $(el_create).attr('disabled','disabled');
+                                         $('#col').click(function(){
+                                            $(el_create).removeAttr("disabled");                                                
+                                         })
+                                    
+                                    }else{
+                                        alert('Поле не должно быть пустым');
+                                    }
+                                    
+                                }) 
+                            })
+                                
+                             //Color picker
+                               $('#colorpickerField').ColorPicker({
+                                    color: '#53ccd0',
+                                    onShow: function (cp) {
+                                        $(cp).fadeIn(500);
+                                        return false;
+                                    },
+                                    onHide: function (cp) {
+                                        $(cp).fadeOut(500);
+                                        return false;
+                                    },
+                                    onChange: function (hsb, hex, rgb) {
+                                        $('#colorpickerField').val('#' + hex);
+                                         $(el_create).attr('style','color:'+$('#colorpickerField').val()+';')
+                                    }
+                                  }); 
+                            //Создать задачу
+                            $('#create_zadacha').click(function(){
+                                $('.modal_add_zad_overlay').fadeIn('slow');
+                                $('.modal_add_zad').fadeIn('slow');
+                                $('.modal_add_zad_overlay').click(function(){
+                                    $('.modal_add_zad').fadeOut('slow');
+                                    $(this).fadeOut('slow');
+                                })
+                                $('#continue').click(function(){
+                                    if($(this).parent('form').find('input').val()){
+                                        $('.modal_add_zad_overlay').fadeOut('slow');
+                                        $('.modal_add_zad').fadeOut('slow');
+                                        alert('Задача создана');
+                                    }
+                                })
+                            })
+                            //Отметить как выполненые
+                            $('#ExecutedTask').click(function(){
+                                 $('.zadachi li input:checkbox:checked').parent('li').find('input[type="text"]').css('text-decoration','line-through');
+                                 $('.zadachi li input:checkbox:checked').parent('li').find('.date_change').text('Только что');
+                            })
+                            //Востановить задачу
+                            $('#reply').click(function(){
+                                if($('.zadachi li input[type="checkbox"]').is(':checked')){
+                                    if($('.zadachi li input:checkbox:checked').parent('li').find('.date_change').text()){
+                                        $('.zadachi li input:checkbox:checked').parent('li').find('input[type="text"]').css('text-decoration','none');
+                                        $('.zadachi li input:checkbox:checked').parent('li').find('.date_change').text('');
+                                    }else{
+                                        alert('Одна или несколько задач не могут быть востановлены, пожалуйста выберите другие!');
+                                    }
+                                }
+                            })
+                            
+                            //Показать скрыть действия
+                            $('#notification').click(function(){
+                                if($('.modal_notification').attr('show') == 0){
+                                    $('.modal_notification').fadeIn();
+                                    $('.modal_notification').attr('show','1');
+                                }else{
+                                    $('.modal_notification').fadeOut();
+                                    $('.modal_notification').attr('show','0');
+                                }
+                                
+                            })
+                            
+                            $( function() {
+                                $( "#datepicker" ).datepicker();
+                            } );
+                            //показ редактора
+                            $('#show_panel').click(function(){
+                                    $('#mceu_11').css('bottom','20px');
+                                    $('#send_com').css('display','block');
+                                    $('.com_over').css('height','170px');
+                                    
+                            })
+                             $('.task_detail,.left_content,.header').click(function(){
+                                 $('#mceu_11').css('bottom','-500px');
+                                 $('#send_com').css('display','none');
+                                 $('.com_over').css('height','400px');
+                             })
+                            $(document).on('click',"#send_com",function(){ 
+                                 var user = $('#show_panel').attr('name_user');
+                                 var text = tinyMCE.activeEditor.getContent();
+                                if(text != ''){
+                                     var new_text = '<div class="item_coment"><a href="">'+user+'</a><p>'+text+'</p></div>';
+                                     $(new_text).appendTo('.com_over');
+                                    scrollBottom =  $(".com_over")[0].scrollHeight;
+                                    $('.com_over').animate({
+                                        scrollTop:scrollBottom
+                                    }, 1000);
+                                }
+                             })
+                        })
+                       /* $(function(){
+                            $("#chatData").focus();
+                            //Добавляем HTML5 Audio тэг в HTML Body
+                            $('<audio id="chatAudio"><source src="notify.ogg" type="audio/ogg"><source src="notify.mp3" type="audio/mpeg"><source src="notify.wav" type="audio/wav"></audio>').appendTo('body');
+
+                            $("#trig").on("click",function(){
+                                var a = $("#chatData").val().trim();
+                                if(a.length > 0)
+                                {
+                                    $("#chatData").val('');
+                                    $("#chatData").focus();
+                                    $("<li></li>").html('<img src="small.jpg"/><span>'+a+'</span>').appendTo("#chatMessages");
+                                    $("#chat").animate({"scrollTop": $('#chat')[0].scrollHeight}, "slow");
+                                    $('#chatAudio')[0].play();
+                                }
+                            });
+                        });*/
+                    </script>
+		            <ul class="zadachi">
+		                <li id="item1">
+		                  <i class="create fa fa-pencil"  aria-hidden="true"></i> <input type="text" value="Подзадача 1" disabled><input type="checkbox" id="check1" name=""><label for="check1"></label><div class="date_change"></div><span class="clear"></span>
+		                </li>
+		                <li id="item2">
+		                    <i class="create fa fa-pencil"  aria-hidden="true"></i> <input type="text" value="Подзадача 2" disabled> <input type="checkbox" id="check2" name=""><label for="check2"></label> <div class="date_change"></div>
+                            <span class="clear"></span>
+		                </li>
+		                <li id="item3">
+		                    <i class="create fa fa-pencil"  aria-hidden="true"></i><input type="text" value="Подзадача 3" disabled> <input type="checkbox" id="check3" name=""><label for="check3"></label><div class="date_change"></div>
+                            <span class="clear"></span>
+		                </li>
+		                <li id="item4">
+		                    <i class="create fa fa-pencil" aria-hidden="true"></i> <input type="text" value="Подзадача 4" disabled> <input type="checkbox" id="check4" name=""><label for="check4"></label><div class="date_change"></div>
+                            <span class="clear"></span>
+		                </li>
+		            </ul>
+		            <input type="button" value="Сохранить сортировку" id="save_sort">
+		        </div>
+		        <div class="center_content">
+		            <div class="title">
+		               <ul>
+		                   <li>
+		                       <i class="create fa fa-pencil" aria-hidden="true"></i> <input type="text" value="Задача 1" disabled>
+		                   </li>
+		               </ul>
+		            </div>
+                <div class="task_detail">
+                    <div>
+                        <div class="avatar"><span>Д</span></div><a href="">Дмитрий</a>
+                    </div>
+                    <div class="create_date">
+                        <div id="calendar">
+                           <input type="text" id="datepicker"><label for="datepicker"><i class="fa fa-calendar" aria-hidden="true"></i> Задать дату</label>
+                        </div>
+                    </div>
+                    <div class="create_date">
+                        <i class="fa fa-clock-o" aria-hidden="true"></i> Напомнить
+                    </div>
+                    <div class="create_date" id="add_task">
+                        <i class="fa fa-plus-square-o" aria-hidden="true" id="under_task"></i> Добавить подзадачу
+                    </div>
+                    <div class="clear"></div>
+                    <div class="coments">
+                        <div class="com_over">
+                           <div class="item_coment">
+                                <a href="">Виктор</a>
+                                <p>
+                                    Коментарий №1
+                                </p>
+                            </div>
+                            <div class="item_coment">
+                                <a href="">Виктор</a>
+                                <p>
+                                    Коментарий №1
+                                </p>
+                            </div>
+                            <div class="item_coment">
+                                <a href="">Виктор</a>
+                                <p>
+                                    Коментарий №1
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="nev_text">
+                    <input type="text" id="show_panel" name_user="Виктор"  placeholder="Ваше сообщение">
+                    <textarea id="text_user" ></textarea>
+                    <button id="send_com">Отправить</button>
+                </div>
+		        </div>
+		        <div class="clear"></div>
+		    </div>
+		</div>
+	</body>
+</html>
